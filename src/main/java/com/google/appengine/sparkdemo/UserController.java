@@ -23,7 +23,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.put;
 
-//import com.google.gson.Gson;
+import com.google.gson.Gson;
 
 import spark.ResponseTransformer;
 import spark.Spark;
@@ -36,7 +36,7 @@ public class UserController {
   public UserController(final UserService userService) {
     Spark.staticFileLocation("/public");
 
-    get("/api/users", (req, res) -> userService.getAllUsers(), json());
+   // get("/api/users", (req, res) -> userService.getAllUsers(), json());
 
     get("/api/users/:id", (req, res) -> userService.getUser(req.params(":id")), json());
 
@@ -62,9 +62,9 @@ public class UserController {
     });
   }
 
-//   private static String toJson(Object object) {
-//     return new Gson().toJson(object);
-//   }
+  private static String toJson(Object object) {
+    return new Gson().toJson(object);
+  }
 
   private static ResponseTransformer json() {
     return UserController::toJson;
