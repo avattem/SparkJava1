@@ -23,7 +23,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.put;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 import spark.ResponseTransformer;
 import spark.Spark;
@@ -62,9 +62,9 @@ public class UserController {
     });
   }
 
-  private static String toJson(Object object) {
-    return new Gson().toJson(object);
-  }
+//   private static String toJson(Object object) {
+//     return new Gson().toJson(object);
+//   }
 
   private static ResponseTransformer json() {
     return UserController::toJson;
